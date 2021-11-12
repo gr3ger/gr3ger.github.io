@@ -12,7 +12,7 @@ ElderFrenzyBank.launch = function(){
     Game.customStatsMenu.push(function(){
         console.log("Stats updated");
 	CCSE.AppendStatsVersionNumber(ElderFrenzyBank.name, ElderFrenzyBank.version);
-        CCSE.AppendStatsGeneral('<div>Bank needed: '+Beautify((Game.cookiesPsRaw * 60 * 30 * 777) / 0.15)+'</div>');
+        CCSE.AppendStatsGeneral('<div class="listing"><b>Bank needed :</b> '+Beautify((Game.cookiesPsRaw * 60 * 30 * 777) / 0.15)+'</div>');
       });
 }
 
