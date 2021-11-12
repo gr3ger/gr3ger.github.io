@@ -9,7 +9,7 @@ ElderFrenzyBank.launch = function(){
     ElderFrenzyBank.isLoaded = 1;
     Game.customStatsMenu.push(function(){
 	CCSE.AppendStatsVersionNumber(ElderFrenzyBank.name, ElderFrenzyBank.version);
-	CCSE.AppendStatsGeneral('<div class="listing"><b>Conjure Baked Goods worth with current (de)buffs :</b> '+Beautify(Math.min(Game.cookiesPsRaw * 60 * 30, Game.cookies * 0.15))+'</div>');
+	CCSE.AppendStatsGeneral('<div class="listing"><b>Conjure Baked Goods worth with current (de)buffs :</b> '+Beautify(Math.min(Game.cookiesPs * 60 * 30, Game.cookies * 0.15))+'</div>');
         CCSE.AppendStatsGeneral('<div class="listing"><b>Elder Frenzy + Conjure Baked Goods worth :</b> '+Beautify(Math.min(Game.cookiesPsRaw * 60 * 30 * 777, Game.cookies * 0.15))+'</div>');	    
         CCSE.AppendStatsGeneral('<div class="listing"><b>Elder Frenzy + Conjure Baked Goods worth at max bank :</b> '+Beautify(Game.cookiesPsRaw * 60 * 30 * 777)+'</div>');
 	CCSE.AppendStatsGeneral('<div class="listing"><b>Elder Frenzy + Conjure Baked Goods max bank needed :</b> '+Beautify((Game.cookiesPsRaw * 60 * 30 * 777) / 0.15)+'</div>');
