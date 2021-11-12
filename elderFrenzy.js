@@ -8,6 +8,7 @@ ElderFrenzyBank.GameVersion = '2.031';
 ElderFrenzyBank.launch = function(){
     console.log("Adding extra stats");
     Game.customStatsMenu.push(function(){
+        console.log("Stats updated");
         CCSE.AppendStatsGeneral("Bank needed "+Beautify((Game.cookiesPsRaw * 60 * 30 * 777) / 0.15));
       });
 }
