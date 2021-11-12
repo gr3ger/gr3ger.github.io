@@ -12,13 +12,11 @@ ElderFrenzyBank.launch = function(){
       });
 }
 
-if(!ElderFrenzyBank.isLoaded){
-	if(CCSE && CCSE.isLoaded){
-		ElderFrenzyBank.launch();
-	}
-	else{
-		if(!CCSE) var CCSE = {};
-		if(!CCSE.postLoadHooks) CCSE.postLoadHooks = [];
-		CCSE.postLoadHooks.push(ElderFrenzyBank.launch);
-	}
+if(CCSE && CCSE.isLoaded){
+	ElderFrenzyBank.launch();
+}
+else{
+	if(!CCSE) var CCSE = {};
+	if(!CCSE.postLoadHooks) CCSE.postLoadHooks = [];
+	CCSE.postLoadHooks.push(ElderFrenzyBank.launch);
 }
