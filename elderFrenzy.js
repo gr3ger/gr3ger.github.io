@@ -6,11 +6,9 @@ ElderFrenzyBank.version = '1.0';
 ElderFrenzyBank.GameVersion = '2.031';
 
 ElderFrenzyBank.launch = function(){
-  ElderFrenzyBank.init = function(){
     Game.customStatsMenu.push(function(){
         CCSE.AppendStatsGeneral("Bank needed "+Beautify((Game.cookiesPsRaw * 60 * 30 * 777) / 0.15));
       });
-  }
 }
 
 if(!ElderFrenzyBank.isLoaded){
