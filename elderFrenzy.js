@@ -1,6 +1,6 @@
 Game.Win('Third-party');
 if(ElderFrenzyBank === undefined) var ElderFrenzyBank = {};
-if(typeof CCSE == 'undefined') Game.LoadMod('https://klattmose.github.io/CookieClicker/' + (0 ? 'Beta/' : '') + 'CCSE.js');
+if(typeof CCSE == 'undefined') Game.LoadMod('https://klattmose.github.io/CookieClicker/CCSE.js');
 ElderFrenzyBank.name = 'Elder Frenzy Bank';
 ElderFrenzyBank.version = '1.0';
 ElderFrenzyBank.GameVersion = '2.031';
