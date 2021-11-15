@@ -9,12 +9,16 @@ ElderFrenzyBank.launch = function(){
     ElderFrenzyBank.isLoaded = 1;
     Game.customStatsMenu.push(function(){
 	    
-	var rawCps30min = Game.cookiesPs * 60 * 30;
+	var rawCps30min = Game.cookiesPsRaw * 60 * 30;
+	var rawCps2h = Game.cookiesPsRaw * 60 * 60 * 2;
+	    
 	CCSE.AppendStatsVersionNumber(ElderFrenzyBank.name, ElderFrenzyBank.version);
 	CCSE.AppendStatsGeneral(`<div class="listing"><b>Conjure Baked Goods + current (de)buffs :</b> ${Beautify(Math.min(Game.cookiesPs * 60 * 30, Game.cookies * 0.15))}</div>`);
-        CCSE.AppendStatsGeneral('<div class="listing"><b>Elder Frenzy + Conjure Baked Goods :</b> '+Beautify(Math.min(rawCps30min * 666, Game.cookies * 0.15))+'</div>');	    
-        CCSE.AppendStatsGeneral('<div class="listing"><b>Elder Frenzy + Conjure Baked Goods at max bank :</b> '+Beautify(rawCps30min * 666)+'(Bank of '+Beautify((rawCps30min * 666) / 0.15)+' needed)</div>');
-      });
+        CCSE.AppendStatsGeneral(`<div class="listing"><b>Elder Frenzy + Conjure Baked Goods :</b> ${Beautify(Math.min(rawCps30min * 666, Game.cookies * 0.15))}</div>`);	    
+        CCSE.AppendStatsGeneral(`<div class="listing"><b>Elder Frenzy + Conjure Baked Goods at max bank :</b> ${Beautify(rawCps30min * 666)} <small>(Bank of ${Beautify((rawCps30min * 666) / 0.15)} needed)</small></div>`);
+        CCSE.AppendStatsGeneral(`<div class="listing"><b>Elder Frenzy + Duketater at max bank :</b> ${Beautify(rawCps2h * 666)} <small>(Bank of ${Beautify((rawCps2h * 666) / 0.08)} needed)</small></div>`);     
+        CCSE.AppendStatsGeneral(`<div class="listing"><b>Elder Frenzy + Bakeberry at max bank :</b> ${Beautify(rawCps30min * 666)} <small>(Bank of ${Beautify((rawCps30min * 666) / 0.03)} needed)</small></div>`);
+    });
 }
 
 if(!ElderFrenzyBank.isLoaded){
