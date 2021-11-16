@@ -23,7 +23,7 @@ ElderFrenzyBank.launch = function(){
 	    <div></div>
 	    <b>Max (Elder Frenzy): </b> ${maxGain}
 	    <div></div>
-	    <b>Bank needed for max: </b> <span style=\"color:${Game.cookies < maxBank ? "#F00" : "#0F0"}\">${maxBank}
+	    <b>Bank needed for max: </b> <span style=\"color:${Game.cookies < maxBank ? "#F00" : "#0F0"}\">${maxBank}</span>
 	    </div></div>`);
 	}
 	else {
