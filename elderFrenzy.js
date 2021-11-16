@@ -14,16 +14,16 @@ ElderFrenzyBank.launch = function(){
     Game.customMinigame["Wizard tower"].spellTooltip.push(function(id, str){
 	if(id === 0){
 	    var rawCps30min = Game.cookiesPsRaw * 60 * 30;
-	    var gain = Beautify(Math.min(Game.cookiesPs * 60 * 30, Game.cookies * 0.15));
-	    var maxGain = Beautify(rawCps30min * 666);
-	    var maxBank = Beautify((rawCps30min * 666) / 0.15);
+	    var gain = Math.min(Game.cookiesPs * 60 * 30, Game.cookies * 0.15);
+	    var maxGain = rawCps30min * 666;
+	    var maxBank = (rawCps30min * 666) / 0.15;
 
 	    return str.replace('</div></div>', `<div style=\"height:8px;\"></div>
-	    <b>Current: </b> ${gain}
+	    <b>Current: </b> ${Beautify(gain)}
 	    <div></div>
-	    <b>Max (Elder Frenzy): </b> ${maxGain}
+	    <b>Max (Elder Frenzy): </b> ${Beautify(maxGain)}
 	    <div></div>
-	    <b>Bank needed for max: </b> <span style=\"color:${Game.cookies < maxBank ? "#F00" : "#0F0"}\">${maxBank}</span>
+	    <b>Bank needed for max: </b> <span style=\"color:${Game.cookies < maxBank ? "#F00" : "#0F0"}\">${Beautify(maxBank)}</span>
 	    </div></div>`);
 	}
 	else {
