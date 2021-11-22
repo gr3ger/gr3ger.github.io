@@ -34,7 +34,7 @@ ElderFrenzyBank.launch = function() {
         var plant = Game.Objects["Farm"].minigame.getTile(col, row)[0] - 1;
         return plantTooltip(plant, text);
     });
-    Game.customMinigame["Farm"].seedTooltip.push(function(text, plant) {
+    Game.customMinigame["Farm"].seedTooltip.push(function(plant, text) {
         return plantTooltip(plant, text);
     });
 }
