@@ -2,7 +2,7 @@ Game.Win('Third-party');
 if (ElderFrenzyBank === undefined) var ElderFrenzyBank = {};
 if (typeof CCSE == 'undefined') Game.LoadMod('https://klattmose.github.io/CookieClicker/CCSE.js');
 ElderFrenzyBank.name = 'Elder Frenzy Bank';
-ElderFrenzyBank.version = '1.0.2';
+ElderFrenzyBank.version = '1.0.3';
 ElderFrenzyBank.GameVersion = '2.031';
 
 ElderFrenzyBank.launch = function() {
@@ -42,12 +42,12 @@ ElderFrenzyBank.launch = function() {
 function plantTooltip(plant, text) {
     switch (plant) {
         case 8:
-            var bakeCpsRawCap = Game.cookiesPsRaw * 60 * 60;
-            var bakeCpsCap = Game.cookiesPs * 60 * 60;
+            var bakeCpsRawCap = Game.cookiesPsRaw * 60 * 30;
+            var bakeCpsCap = Game.cookiesPs * 60 * 30;
 
-            var bakeGain = Math.min(bakeCpsCap, Game.cookies * 0.04);
+            var bakeGain = Math.min(bakeCpsCap, Game.cookies * 0.03);
             var bakeMaxGain = bakeCpsRawCap * 666;
-            var bakeMaxBank = bakeMaxGain / 0.04;
+            var bakeMaxBank = bakeMaxGain / 0.03;
 
             return text + `<div style=\"height:8px;\"></div>
 		    <b>Current: </b> ${Beautify(bakeGain)}
