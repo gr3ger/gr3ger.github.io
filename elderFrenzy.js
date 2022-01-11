@@ -5,6 +5,9 @@ ElderFrenzyBank.name = 'Elder Frenzy Bank';
 ElderFrenzyBank.version = '1.0.3';
 ElderFrenzyBank.GameVersion = '2.031';
 
+var flightBonus = 1111;
+var wrathBonus = 666;
+
 ElderFrenzyBank.launch = function() {
     ElderFrenzyBank.isLoaded = 1;
     Game.customStatsMenu.push(function() {
@@ -13,18 +16,21 @@ ElderFrenzyBank.launch = function() {
 
     Game.customMinigame["Wizard tower"].spellTooltip.push(function(id, str) {
         if (id === 0) {
-            var rawCps30min = Game.cookiesPsRaw * 60 * 30;
-            var gain = Math.min(Game.cookiesPs * 60 * 30, Game.cookies * 0.15);
-            var maxGain = rawCps30min * 666;
-            var maxBank = (rawCps30min * 666) / 0.15;
+            var rawCps30min = getRawCpsMin(30);
+            var gain = Math.min(getCpsMin(30), Game.cookies * 0.15);
+		
+            var wrathMaxGain = getMaxGain(rawCps30min, wrathBonus);
+            var wrathMaxBank = getMaxBank(rawCps30min, 0.15, wrathBonus);		
+            var flightMaxGain = getMaxGain(rawCps30min, flightBonus);
+            var flightMaxBank = getMaxBank(rawCps30min, 0.15, flightBonus);		
 
             return str.replace('</div></div>', `<div style=\"height:8px;\"></div>
 	    <b>Current: </b> ${Beautify(gain)}
 	    <div></div>
-	    <b>Max (Elder Frenzy): </b> ${Beautify(maxGain)}
-	    <div></div>
-	    <b>Bank needed for max: </b> <span style=\"color:${Game.cookies < maxBank ? "#F00" : "#0F0"}\">${Beautify(maxBank)}</span>
-	    </div></div>`);
+	    <b>Max (Elder Frenzy): </b> ${Beautify(wrathMaxGain)} (Bank: <span style=\"color:${Game.cookies < wrathMaxBank ? "#F00" : "#0F0"}\">${Beautify(wrathMaxBank)}</span>)
+	    <div></div>	    
+	    <b>Max (Dragonflight): </b> ${Beautify(flightMaxGain)} (Bank: <span style=\"color:${Game.cookies < flightMaxBank ? "#F00" : "#0F0"}\">${Beautify(flightMaxBank)}</span>)
+	    <div></div>`);
         } else {
             return str;
         }
@@ -89,6 +95,22 @@ function plantTooltip(plant, text) {
     }
 
     return text;
+}
+
+function getMaxBank(rawCps, bankCap, multiplier){
+	return (rawCps * multiplier) / bankCap;
+}
+
+function getMaxGain(rawCps, multiplier){
+	return rawCps * multiplier;
+}
+
+function getRawCpsMin(minutes){
+	return Game.cookiesPsRaw * 60 * minutes;	
+}
+
+function getCpsMin(minutes){
+	return Game.cookiesPs * 60 * minutes;	
 }
 
 if (!ElderFrenzyBank.isLoaded) {
