@@ -27,9 +27,13 @@ ElderFrenzyBank.launch = function() {
             return str.replace('</div></div>', `<div style=\"height:8px;\"></div>
 	    <b>Current: </b> ${Beautify(gain)}
 	    <div></div>
-	    <b>Max (Elder Frenzy): </b> ${Beautify(wrathMaxGain)} (Bank: <span style=\"color:${Game.cookies < wrathMaxBank ? "#F00" : "#0F0"}\">${Beautify(wrathMaxBank)}</span>)
-	    <div></div>	    
-	    <b>Max (Dragonflight): </b> ${Beautify(flightMaxGain)} (Bank: <span style=\"color:${Game.cookies < flightMaxBank ? "#F00" : "#0F0"}\">${Beautify(flightMaxBank)}</span>)
+	    <b>Max (Elder Frenzy): </b> ${Beautify(wrathMaxGain)}
+	    <div></div>
+	    (Bank: <span style=\"color:${Game.cookies < wrathMaxBank ? "#F00" : "#0F0"}\">${Beautify(wrathMaxBank)}</span>)
+	    <div></div>
+	    <b>Max (Dragonflight): </b> ${Beautify(flightMaxGain)}
+	    <div></div>
+	    (Bank: <span style=\"color:${Game.cookies < flightMaxBank ? "#F00" : "#0F0"}\">${Beautify(flightMaxBank)}</span>)
 	    <div></div>`);
         } else {
             return str;
