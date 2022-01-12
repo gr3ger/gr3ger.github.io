@@ -5,7 +5,6 @@ ElderFrenzyBank.name = 'Elder Frenzy Bank';
 ElderFrenzyBank.version = '1.0.3';
 ElderFrenzyBank.GameVersion = '2.031';
 
-var flightBonus = 1111;
 var wrathBonus = 666;
 
 ElderFrenzyBank.launch = function() {
@@ -20,20 +19,14 @@ ElderFrenzyBank.launch = function() {
             var gain = Math.min(getCpsMin(30), Game.cookies * 0.15);
 		
             var wrathMaxGain = getMaxGain(rawCps30min, wrathBonus);
-            var wrathMaxBank = getMaxBank(rawCps30min, 0.15, wrathBonus);		
-            var flightMaxGain = getMaxGain(rawCps30min, flightBonus);
-            var flightMaxBank = getMaxBank(rawCps30min, 0.15, flightBonus);		
+            var wrathMaxBank = getMaxBank(rawCps30min, 0.15, wrathBonus);	
 
             return str.replace('</div></div>', `<div style=\"height:8px;\"></div>
 	    <b>Current: </b> ${Beautify(gain)}
 	    <div></div>
 	    <b>Max (Elder Frenzy): </b> ${Beautify(wrathMaxGain)}
 	    <div></div>
-	    (Bank: <span style=\"color:${Game.cookies < wrathMaxBank ? "#F00" : "#0F0"}\">${Beautify(wrathMaxBank)}</span>)
-	    <div></div>
-	    <b>Max (Dragonflight): </b> ${Beautify(flightMaxGain)}
-	    <div></div>
-	    (Bank: <span style=\"color:${Game.cookies < flightMaxBank ? "#F00" : "#0F0"}\">${Beautify(flightMaxBank)}</span>)
+	    <b>Bank needed for max: </b> <span style=\"color:${Game.cookies < wrathMaxBank ? "#F00" : "#0F0"}\">${Beautify(wrathMaxBank)}</span>
 	    <div></div>`);
         } else {
             return str;
