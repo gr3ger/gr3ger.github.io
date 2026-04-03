@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scuffed Duck Stream</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --panel-border: #2a2f3a;
+      --text: #e8eaf0;
+      --muted: #9aa3b2;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --radius: 16px;
+      --gap: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: linear-gradient(180deg, #10131a 0%, #0f1115 100%);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      padding: 24px;
+    }
+
+    .page {
+      margin: 0 auto;
+    }
+
+    .header {
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      margin: 0 0 6px;
+      font-size: clamp(1.5rem, 2vw, 2.25rem);
+      font-weight: 700;
+    }
+
+    .header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(320px, 0.9fr);
+      gap: var(--gap);
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel__title {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--panel-border);
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .stream-wrap {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      background: #000;
+    }
+
+    .stream-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .chat-wrap {
+      height: calc((100vw - 48px - 16px) / 2.2 * 0.9);
+      min-height: 540px;
+      max-height: 920px;
+    }
+
+    .chat-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 980px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .chat-wrap {
+        height: 520px;
+        min-height: 420px;
+        max-height: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 12px;
+      }
+
+      .chat-wrap {
+        height: 460px;
+      }
+
+      .panel__title {
+        padding: 12px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <section class="layout">
+      <div class="panel">
+        <div class="panel__title">YouTube Live Stream</div>
+        <div class="stream-wrap">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/c2vvClwArAI?autoplay=1&mute=1&rel=0"
+            title="YouTube live stream"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel__title">Twitch Chat</div>
+        <div class="chat-wrap">
+          <iframe
+            src="https://www.twitch.tv/embed/ducksaint/chat?parent=gr3ger.github.io"
+            title="Twitch chat">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
