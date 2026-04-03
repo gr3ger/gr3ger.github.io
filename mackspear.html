@@ -161,6 +161,12 @@
   const youtubeFrame = document.getElementById("youtubeFrame");
   const setVideoBtn = document.getElementById("setVideoBtn");
 
+  const params = new URLSearchParams(window.location.search);
+  const videoGetParameter = params.get("video");
+  if(videoGetParameter){
+    updateVideo(videoGetParameter)
+  }
+
   function updateVideo(videoId) {
     const trimmedId = videoId.trim();
     if (!trimmedId) {
