@@ -157,26 +157,24 @@
 </section>
 
 <script>
-  const defaultVideoId = "y3AWBLbIjlg";
+  let currentVideoId = "y3AWBLbIjlg";
   const youtubeFrame = document.getElementById("youtubeFrame");
   const setVideoBtn = document.getElementById("setVideoBtn");
 
   const params = new URLSearchParams(window.location.search);
-  const videoGetParameter = params.get("video");
-  if(videoGetParameter){
-    updateVideo(videoGetParameter)
-  }
+  updateVideo(params.get("video"))
 
   function updateVideo(videoId) {
-    const trimmedId = videoId.trim();
+    const trimmedId = videoId?.trim();
     if (!trimmedId) {
       return;
     }
-    youtubeFrame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(trimmedId)}?autoplay=1&mute=0&rel=0`;
+    currentVideoId = trimmedId;
+    youtubeFrame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(currentVideoId)}?autoplay=1&mute=0&rel=0`;
   }
 
   setVideoBtn.addEventListener("click", () => {
-    const input = prompt("Enter the YouTube video ID:", defaultVideoId);
+    const input = prompt("Enter the YouTube video ID:", currentVideoId);
     if (input !== null) {
       updateVideo(input);
     }
