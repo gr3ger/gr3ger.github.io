@@ -92,13 +92,6 @@
             display: block;
         }
 
-        .note {
-            margin-top: 14px;
-            color: var(--muted);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
         @media (max-width: 980px) {
             .layout {
                 grid-template-columns: 1fr;
@@ -127,9 +120,6 @@
     </style>
 </head>
 <body>
-<div class="controls">
-  <button id="setVideoBtn">Set YouTube Video ID</button>
-</div>
 <section class="layout">
     <div class="panel">
         <div class="panel__title">YouTube Live Stream</div>
@@ -159,7 +149,6 @@
 <script>
   let currentVideoId = "y3AWBLbIjlg";
   const youtubeFrame = document.getElementById("youtubeFrame");
-  const setVideoBtn = document.getElementById("setVideoBtn");
 
   const params = new URLSearchParams(window.location.search);
   updateVideo(params.get("video"))
@@ -172,13 +161,6 @@
     currentVideoId = trimmedId;
     youtubeFrame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(currentVideoId)}?autoplay=1&mute=0&rel=0`;
   }
-
-  setVideoBtn.addEventListener("click", () => {
-    const input = prompt("Enter the YouTube video ID:", currentVideoId);
-    if (input !== null) {
-      updateVideo(input);
-    }
-  });
 </script>
 
 </body>
